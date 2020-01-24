@@ -1,0 +1,5 @@
+#Limpeza de dockers parados
+# sudo su
+
+ docker rm --force $(docker ps -a -q)
+
