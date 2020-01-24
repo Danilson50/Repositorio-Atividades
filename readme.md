@@ -1,9 +1,8 @@
-#Git Course
+Repositorio pessoal
 
 
-Este é um repositorio
+Este é um repositorio com arquivos simples de docker!
 
-testando o git novamente
 
 Envio de arquivo para GitHub!
 
