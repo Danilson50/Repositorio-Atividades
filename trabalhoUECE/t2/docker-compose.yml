@@ -27,6 +27,7 @@ services:
      container_name: wordpress2
      depends_on:
        - db
+       - wordpress1
      volumes:
        - ./dados/wordpress/var/www/html:/var/www/html
      environment:
@@ -40,6 +41,7 @@ services:
      container_name: wordpress3
      depends_on:
        - db
+       - wordpress2
      volumes:
        - ./dados/wordpress/var/www/html:/var/www/html
      environment:
@@ -53,8 +55,6 @@ services:
      container_name: nginx
      depends_on:
         - db
-        - wordpress1
-        - wordpress2
         - wordpress3
      ports:
        - "80:80"
