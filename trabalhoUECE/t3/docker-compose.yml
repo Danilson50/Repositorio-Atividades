@@ -1,0 +1,75 @@
+version: "3.7"
+services:
+   db:
+     image: mysql:5.7
+     container_name: wordpress-db
+     environment:
+       MYSQL_ROOT_PASSWORD: r00t
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: usr-wordpress
+       MYSQL_PASSWORD: pwd-wordpress
+     
+   wordpress1:
+     image: wordpress
+     container_name: wordpress1
+     depends_on:
+       - db
+     volumes:
+       - ./dados/wordpress/var/www/html:/var/www/html
+     environment:
+        WORDPRESS_DB_HOST: wordpress-db
+        WORDPRESS_DB_USER: usr-wordpress
+        WORDPRESS_DB_PASSWORD: pwd-wordpress
+        WORDPRESS_DB_NAME: wordpress
+  
+   wordpress2:
+     image: wordpress
+     container_name: wordpress2
+     depends_on:
+       - db
+       - wordpress1
+     volumes:
+       - ./dados/wordpress/var/www/html:/var/www/html
+     environment:
+        WORDPRESS_DB_HOST: wordpress-db
+        WORDPRESS_DB_USER: usr-wordpress
+        WORDPRESS_DB_PASSWORD: pwd-wordpress
+        WORDPRESS_DB_NAME: wordpress
+   
+   wordpress3:
+     image: wordpress
+     container_name: wordpress3
+     depends_on:
+       - db
+       - wordpress2
+     volumes:
+       - ./dados/wordpress/var/www/html:/var/www/html
+     environment:
+        WORDPRESS_DB_HOST: wordpress-db
+        WORDPRESS_DB_USER: usr-wordpress
+        WORDPRESS_DB_PASSWORD: pwd-wordpress
+        WORDPRESS_DB_NAME: wordpress
+
+   nginx:
+     image: nginx
+     container_name: nginx
+     depends_on:
+        - db
+        - wordpress3
+     ports:
+       - "80:80"
+     volumes:
+       - ./dados/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+
+   locust:
+     image: grubykarol/locust
+     container_name: locust
+     depends_on:
+       - nginx
+     ports:
+       - "8089:8089"
+     volumes:
+       - ./dados/locust/:/locust
+     environment:
+       ATTACKED_HOST: http://nginx
+       LOCUST_OPTS: "-c 10 -r 10"
