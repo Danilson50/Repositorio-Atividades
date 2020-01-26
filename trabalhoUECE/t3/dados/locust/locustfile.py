@@ -1,24 +1,11 @@
 from locust import HttpLocust, TaskSet, task
 
-def index(l):
-    l.client.get("/")
-
-def stats(l):
-    l.client.get("/stats/requests")
-
 class UserTasks(TaskSet):
-    # one can specify tasks like this
-    tasks = [index, stats]
-    
-    # but it might be convenient to use the @task decorator
+
     @task
-    def page404(self):
-        self.client.get("/does_not_exist")
-    
+    def index(self):
+        self.client.get("/?p=1") # Realiza um get na url <HOST_DO_WORDPRESS>/?p=1
+
+
 class WebsiteUser(HttpLocust):
-    """
-    Locust user class that does requests to the locust web server running on localhost
-    """
-    host = "http://127.0.0.1:8089"
-    wait_time = between(2, 5)
     task_set = UserTasks
