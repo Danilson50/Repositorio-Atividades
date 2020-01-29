@@ -2,9 +2,15 @@ from locust import HttpLocust, TaskSet, task
 
 class UserTasks(TaskSet):
 
-    @task(2)
+        
+    @task(3)
     def language(self):
         self.client.post("/wp-admin/install.php?step1",{"language":""})
+    
+    @task(2)
+    def loginAndLogout(self):
+        self.client.post("/wp-login.php",{"username":"admin","password":"#@!Mudar!"})
+        self.client.post("/wp-login.php",{"loggedout":"true"})
 
     @task(1)
     def index(self):
