@@ -8,7 +8,8 @@ services:
        MYSQL_DATABASE: wordpress
        MYSQL_USER: usr-wordpress
        MYSQL_PASSWORD: pwd-wordpress
-     
+     volumes:
+       - ./dados/mysql/var/lib/mysql:/var/lib/mysql
    wordpress1:
      image: wordpress
      container_name: wordpress1
