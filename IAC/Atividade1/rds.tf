@@ -14,8 +14,8 @@ resource "aws_db_instance" "db-web" {
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
   name                 = "mydb"
-  username             = "foo"
-  password             = "foobarbaz"
+  username             = "wordP"
+  password             = "WorP123456"
   parameter_group_name = "default.mysql5.7"
   availability_zone    = "${var.region}a"
   skip_final_snapshot  = true
