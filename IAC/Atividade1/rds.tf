@@ -13,7 +13,7 @@ resource "aws_db_instance" "db-web" {
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
-  name                 = "mydb"
+  name                 = "wordpress"
   username             = "wordP"
   password             = "WorP123456"
   parameter_group_name = "default.mysql5.7"
