@@ -51,7 +51,7 @@ resource "aws_autoscaling_group" "this" {
   health_check_type         = "ELB"
   force_delete              = true
   target_group_arns         = [aws_lb_target_group.tg.arn]
- /* enabled_metrics           = [var.enabled_metrics] */
+  /* enabled_metrics           = [var.enabled_metrics] */
 }
 
 resource "aws_autoscaling_policy" "scale-up" {
