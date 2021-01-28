@@ -38,6 +38,7 @@ resource "aws_launch_configuration" "this" {
   associate_public_ip_address = true
 
   user_data = file("setup.sh")
+
 }
 
 resource "aws_autoscaling_group" "this" {

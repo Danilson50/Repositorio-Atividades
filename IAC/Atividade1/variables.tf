@@ -11,7 +11,7 @@ variable "public_a_cidr" {
 }
 
 variable "private_a_cidr" {
-  default = "172.20.2.0/23"
+  default = "172.20.2.0/24"
 }
 
 variable "public_b_cidr" {
@@ -19,7 +19,7 @@ variable "public_b_cidr" {
 }
 
 variable "private_b_cidr" {
-  default = "172.20.4.0/23"
+  default = "172.20.4.0/24"
 }
 
 variable "ami" {
