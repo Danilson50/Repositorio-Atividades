@@ -34,7 +34,7 @@ resource "aws_launch_configuration" "this" {
   image_id                    = var.ami
   instance_type               = var.instance_type
   key_name                    = var.key_pair
-  security_groups             = [aws_security_group.autoscaling.id]
+  security_groups             = [aws_security_group.web.id, aws_security_group.autoscaling.id]
   associate_public_ip_address = true
 
   user_data = file("setup.sh")
@@ -59,7 +59,7 @@ resource "aws_autoscaling_policy" "scale-up" {
   autoscaling_group_name = aws_autoscaling_group.this.name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "1"
-  cooldown               = "300"
+  cooldown               = "900"
   policy_type            = "SimpleScaling"
 }
 
@@ -68,6 +68,6 @@ resource "aws_autoscaling_policy" "scale-down" {
   autoscaling_group_name = aws_autoscaling_group.this.name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "-1"
-  cooldown               = "300"
+  cooldown               = "900"
   policy_type            = "SimpleScaling"
 }
