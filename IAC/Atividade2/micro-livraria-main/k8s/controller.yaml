@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: controller
+  name: controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: controller
+  template:
+    metadata:
+      labels:
+        app: controller
+    spec:
+      containers:
+      - image: cmendes/livraria-controller
+        imagePullPolicy: "Always"
+        name: controller
+        ports:
+        - containerPort: 3000
+        env:
+        - name: INVENTORY_HOST
+          value: http://inventory:3002
+        - name: SHIPPING_HOST
+          value: http://shipping:3001

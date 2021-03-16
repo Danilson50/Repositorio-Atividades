@@ -1,0 +1,30 @@
+{
+    "name": "controller",
+    "version": "1.0.0",
+    "main": "",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rodrigo-brito/shop-microservice.git"
+    },
+    "author": "Rodrigo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/rodrigo-brito/shop-microservice/issues"
+    },
+    "homepage": "https://github.com/rodrigo-brito/shop-microservice#readme",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.2.6",
+        "@grpc/proto-loader": "^0.5.6",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "google-protobuf": "^3.15.0-rc.1",
+        "grpc": "^1.24.4",
+        "serve": "^11.3.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
+}

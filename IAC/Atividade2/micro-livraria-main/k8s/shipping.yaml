@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: shipping
+  name: shipping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipping
+  template:
+    metadata:
+      labels:
+        app: shipping
+    spec:
+      containers:
+      - image: cmendes/livraria-shipping
+        imagePullPolicy: "Always"
+        name: shipping
+        ports:
+        - containerPort: 3001

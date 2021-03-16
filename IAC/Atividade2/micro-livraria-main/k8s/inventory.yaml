@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: inventory
+  name: inventory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+      - image: cmendes/livraria-inventory
+        imagePullPolicy: "Always"
+        name: inventory
+        ports:
+        - containerPort: 3002
