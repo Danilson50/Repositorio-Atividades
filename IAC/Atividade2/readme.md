@@ -58,7 +58,7 @@ terraform apply
 
 **Pegar EKS config** 
 
-aws eks update-kubeconfig --name getting-started-eks --region ap-southeast-2
+aws eks update-kubeconfig --name getting-started-eks --region us-east-1
 
 **Instalar kubectl** 
 
@@ -73,11 +73,11 @@ mv ./kubectl /usr/local/bin/kubectl
 
 ***Acessar a pasta com os arquivos do Projeto Livraria***
 
-cd micro-livraria-main/
+cd ..
 
 ***Executando projeto livraria***
 
-kubectl apply -f k8s
+kubectl apply -f minipets-k8s-master
 
 ***Comandos para verificar os serviços***
 
@@ -92,9 +92,10 @@ kubectl get svc
 
 ***Apagar projeto livraria***
 
-kubectl delete -f k8s
+kubectl delete -f minipets-k8s-master
 
 ## Apagar tudo
+cd kub/
 
- **terraform destroy** 
+terraform destroy
  

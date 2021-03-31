@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: shipping-svc
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8082
+    targetPort: 8082
+  selector:
+    app: shipping

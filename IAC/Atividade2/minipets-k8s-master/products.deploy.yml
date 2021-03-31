@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: products
+  labels:
+    app: products
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: products
+  template:
+    metadata:
+      labels:
+        app: products
+    spec:
+      containers:
+      - name: products-pod
+        image: rodneybarreto/minipets_products-api:1.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
