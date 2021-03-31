@@ -2,7 +2,7 @@
 
 Podemos ver os seguintes arquivos nas pastas:
 
-|Pastas                |Conteúdo                 |
+|Pasta                |Conteúdo                 |
 |----------------|-------------------------------|
 |Kub|`Arquivos utilizados para criar o EKS via Terraform`            
 |minipets-k8s-master          |`Arquivos YML para deployment do Projeto Minipets`            |
