@@ -2,10 +2,11 @@
 
 Podemos ver os seguintes arquivos nas pastas:
 
-|Pastas                |Conteúdo                                                   |
-|----------------|-------------------------------|-----------------------------|
-|Kub|`Arquivos utilizados para criar o EKS via Terraform`            |'Isn't this fun?'            |
-|minipets-k8s-master          |`Arquivos YML para deployment do Projeto Minipets`            |"Isn't this fun?"            |
+|Pastas                |Conteúdo                 |
+|----------------|-------------------------------|
+|Kub|`Arquivos utilizados para criar o EKS via Terraform`            
+|minipets-k8s-master          |`Arquivos YML para deployment do Projeto Minipets`            |
+
 
 
 # Iniciando Docker com Amazon CLI
