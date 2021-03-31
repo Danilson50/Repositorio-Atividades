@@ -1,4 +1,4 @@
-## Descrição das Pastas
+# Descrição das Pastas
 
 Podemos ver os seguintes arquivos nas pastas:
 
@@ -34,7 +34,7 @@ Default region name: us-east-1
 Default output format: json
 
 
-## Instalando Terraform no Docker
+# Instalando Terraform no Docker
 
 **Download Terraform** 
 
@@ -49,7 +49,7 @@ chmod +x terraform && mv terraform /usr/local/bin/
 
 terraform
 
-## Criando o Amazon Kubernetes com Terraform
+# Criando o Amazon Kubernetes com Terraform
 
 ***Acessar a pasta com os arquivos .tf***
 
@@ -64,7 +64,7 @@ terraform plan
 terraform apply
 
 
-## Deployed aplicação Kubernetes
+# Deployed aplicação Kubernetes
 
 
 **Pegar Configurações EKS** 
@@ -105,7 +105,7 @@ kubectl get svc
 
 kubectl delete -f minipets-k8s-master
 
-## Apagar infraestrutura criada pelo Terraform
+# Apagar infraestrutura criada pelo Terraform
 cd kub/
 
 terraform destroy
