@@ -1,3 +1,13 @@
+## Descrição das Pastas
+
+Podemos ver os seguintes arquivos nas pastas:
+
+|Pastas                |Conteúdo                                                   |
+|----------------|-------------------------------|-----------------------------|
+|Kub|`Arquivos utilizados para criar o EKS via Terraform`            |'Isn't this fun?'            |
+|minipets-k8s-master          |`Arquivos YML para deployment do Projeto Minipets`            |"Isn't this fun?"            |
+
+
 # Iniciando Docker com Amazon CLI
 
  **Iniciando Amazon CLI**
@@ -23,7 +33,7 @@ Default region name: us-east-1
 Default output format: json
 
 
-## Instalando Terraform CLI
+## Instalando Terraform no Docker
 
 **Download Terraform** 
 
@@ -38,7 +48,7 @@ chmod +x terraform && mv terraform /usr/local/bin/
 
 terraform
 
-## Terraform Amazon Kubernetes Provider
+## Criando o Amazon Kubernetes com Terraform
 
 ***Acessar a pasta com os arquivos .tf***
 
@@ -56,11 +66,11 @@ terraform apply
 ## Deployed aplicação Kubernetes
 
 
-**Pegar EKS config** 
+**Pegar Configurações EKS** 
 
 aws eks update-kubeconfig --name getting-started-eks --region us-east-1
 
-**Instalar kubectl** 
+**Instalar kubectl no Docker** 
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
@@ -71,11 +81,11 @@ chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 
 
-***Acessar a pasta com os arquivos do Projeto Livraria***
+***Voltando para a Raiz para executar os arquivos do MiniPets***
 
 cd ..
 
-***Executando projeto livraria***
+***Executando projeto MiniPets***
 
 kubectl apply -f minipets-k8s-master
 
@@ -90,11 +100,11 @@ kubectl get pods
 kubectl get svc
 
 
-***Apagar projeto livraria***
+***Apagar projeto MiniPets***
 
 kubectl delete -f minipets-k8s-master
 
-## Apagar tudo
+## Apagar infraestrutura criada pelo Terraform
 cd kub/
 
 terraform destroy
